@@ -8,7 +8,9 @@
         <div class="card-trip-infos taille-card-texte">
           <div class="d-flex justify-content-center">
             <h3 class="text-center"><%= cocktail.name %></h3>
-            <%= link_to "Delete", cocktails_path, :confirm => "Are you sure?", method: :destroy %>
+            <%= link_to "Delete", cocktail_path(cocktail),
+                        :confirm => "Are you sure?",
+                        method: :delete %>
           </div>
         </div>
       </div>
