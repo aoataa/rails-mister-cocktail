@@ -1,0 +1,16 @@
+<div class="container">
+  <%#= render 'form', restaurant: @restaurant %>
+
+
+  <%= simple_form_for [ @cocktail] do |f| %>
+    <%= f.input :name %>
+
+
+
+
+    <%= f.submit "Create cocktail", class: "btn btn-primary" %>
+  <% end %>
+
+  <%= link_to 'Back', cocktails_path %>
+
+</div>
