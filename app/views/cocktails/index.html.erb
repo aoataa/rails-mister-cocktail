@@ -1,33 +1,17 @@
 <div class="container">
-    <div class="cards-cocktails">
-        <div class="card-trip shadow taille-card d-flex flex-column">
-          <div class="image" style="background-image: url(https://s23209.pcdn.co/wp-content/uploads/2014/06/IMG_0450edit-1.jpg)"></div>
-          <div class="card-trip-infos taille-card-texte">
-            <div class="d-flex justify-content-center">
-              <h2 class="text-center">cocktail.name</h2>
-            </div>
-          </div></div>
-        <div class="card-trip shadow taille-card d-flex flex-column">
-          <div class="image" style="background-image: url(https://www.cookingonthefrontburners.com/wp-content/uploads/2016/03/LimoncelloMartini.jpg)" ></div>
-          <div class="card-trip-infos taille-card-texte">
-            <div class="d-flex justify-content-center">
-              <h2 class="text-center"><cocktail.name></h2>
-            </div>
-          </div></div>
-    </div>
-</div>
+  <div class="cards-cocktails">
 
+    <% @cocktails.each do |cocktail| %>
+      <div class="card-trip shadow taille-card d-flex flex-column">
+        <div class="image" style="background-image: url('<%= cl_image_path cocktail.photo.key, width: 250, height: 400, crop: :mfit %>')" ></div>
 
-
-  <% @cocktails.each do |cocktail| %>
-    <!-- <li><%= link_to cocktail.name, cocktail_path(cocktail) %></li> -->
-    <div class="card-trip shadow taille-card d-flex flex-column">
-      <div class="image" style="background-image: url(<%= cl_image_tag @cocktail.photo.key, height: 400, width: 300, crop: :fill %>)">
-      </div>
-      <div class="card-trip-infos taille-card-texte">
-        <div class="d-flex justify-content-center">
-          <h2 class="text-center"><%=cocktail.name%></h2>
+        <div class="card-trip-infos taille-card-texte">
+          <div class="d-flex justify-content-center">
+            <h3 class="text-center"><%= cocktail.name %></h3>
+            <%= link_to "Delete", cocktails_path, :confirm => "Are you sure?", method: :destroy %>
+          </div>
         </div>
       </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
+</div>
