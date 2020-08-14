@@ -16,3 +16,18 @@
           </div></div>
     </div>
 </div>
+
+
+
+  <% @cocktails.each do |cocktail| %>
+    <!-- <li><%= link_to cocktail.name, cocktail_path(cocktail) %></li> -->
+    <div class="card-trip shadow taille-card d-flex flex-column">
+      <div class="image" style="background-image: url(<%= cl_image_tag @cocktail.photo.key, height: 400, width: 300, crop: :fill %>)">
+      </div>
+      <div class="card-trip-infos taille-card-texte">
+        <div class="d-flex justify-content-center">
+          <h2 class="text-center"><%=cocktail.name%></h2>
+        </div>
+      </div>
+    </div>
+  <% end %>
