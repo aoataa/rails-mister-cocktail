@@ -10,12 +10,18 @@
   background-size: cover;
 }
 
+.poubelle {
+  color: black;
+  opacity: 0;
+  transition: .5s ease;
+}
+
 .taille-card{
   height: 400px;
 }
 
 .taille-card-texte {
-  height: 20%
+  height: 20%;
 }
 
 .hover-hello {
@@ -23,11 +29,11 @@
   transition: .5s ease;
 }
 
-.container-hover:hover .description{
+.container-hover:hover .poubelle .description {
   opacity: 1;
 }
 
-.container-hover:hover .photo{
+.container-hover:hover .photo {
   opacity: 0.2;
 }
 
