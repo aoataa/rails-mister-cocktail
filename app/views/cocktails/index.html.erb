@@ -4,17 +4,21 @@
     <% @cocktails.each do |cocktail| %>
 
       <div class="container-hover">
-
+        <h4 class="description">blabla</h4>
         <div class="d-flex flex-column">
-          <h4 class="description"></h4>
           <div class="card-trip shadow taille-card photo">
-            <div class="image" style="background-image: url('<%= cl_image_path cocktail.photo.key, width: 250, height: 400, crop: :mfit %>')" ></div>
+
+            <% if cocktail.photo.attached? %>
+              <div class="image" style="background-image: url('<%= cl_image_path cocktail.photo.key, width: 250, height: 400, crop: :mfit %>')" ></div>
+            <% else %>
+            <% end%>
               <div class="card-trip-infos taille-card-texte">
                 <div class="d-flex justify-content-center">
                   <h3 class="text-center"><%= cocktail.name %></h3>
                   <%= link_to "",cocktail_path(cocktail),
                               :confirm => "Are you sure?",
                               method: :delete, class: "fas fa-trash poubelle"%>
+
                 </div>
               </div>
           </div>

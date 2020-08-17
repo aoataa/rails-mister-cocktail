@@ -3,6 +3,9 @@
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   grid-gap: 10px;
 }
+.container-hover{
+  position: relative;
+}
 
 .image {
   width: 100%;
@@ -14,6 +17,8 @@
   color: black;
   opacity: 0;
   transition: .5s ease;
+  backface-visibility: hidden;
+  position: absolute;
 }
 
 .taille-card{
@@ -29,18 +34,26 @@
   transition: .5s ease;
 }
 
-.container-hover:hover .poubelle .description {
+.description {
+  opacity: 0;
+  transition: .5s ease;
+  text-align: center;
+  margin-top: 30px;
+  position: absolute;
+  backface-visibility: hidden;
+  text-align: center;
+}
+
+.container-hover:hover .description {
+  opacity: 1;
+}
+
+.container-hover:hover .poubelle {
   opacity: 1;
 }
 
 .container-hover:hover .photo {
   opacity: 0.2;
-}
-
-.description {
-  opacity: 0;
-  transition: .5s ease;
-  text-align: center;
 }
 
 .container-cards {
@@ -52,11 +65,13 @@
   .cards-cocktails  {
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   }
+
   .container-cards {
     margin-right: 200px;
     margin-left: 200px;
   }
 }
+
 @media(max-width: 1400px) {
   .cards-cocktails  {
     grid-template-columns: 1fr 1fr 1fr 1fr;
